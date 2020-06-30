@@ -18,8 +18,8 @@ namespace Web_Hoa.Controllers
         {
             if (Session["IDNguoiDung"] != null)
             {
-                var model1 = context.Hoas.Where(x => x.TenHoa != null).ToList();
-                return View(model1);
+                var model = context.Hoas.Where(x => x.TenHoa != null).ToList();
+                return View(model);
             }
             else
             {
