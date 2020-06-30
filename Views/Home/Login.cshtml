@@ -1,0 +1,60 @@
+﻿@model Web_Hoa.Models.NguoiDung
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="~/Content/Login.css" />
+<style>
+    body{
+        width:100%;
+        margin:0;
+        padding:0;
+    }
+</style>
+<body>
+    <h2 style="margin-left:550px" >Login</h2>
+    @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+    {
+        <div id="login-div">
+            <table>
+                <tr>
+                    <td></td>
+                    <td style="text-decoration:underline;text-align:center">HoaTuoi@Store</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Email)</td>
+                    <td>@Html.EditorFor(m => m.Email)</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>@Html.ValidationMessageFor(m => m.Email)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.MatKhau)</td>
+                    <td>@Html.EditorFor(m => m.MatKhau)</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>@Html.ValidationMessageFor(m => m.MatKhau)</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <label class="label-danger">@ViewBag.LoginErrorMessage</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" name="submit" class="btn-primary" value="Login" />
+                        <input type="reset" name="reset" value="Reset" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+     }
+    <a href="/Home/SignUp" id="Sign-up"><h4>creat new account</h4> </a>
+</body>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

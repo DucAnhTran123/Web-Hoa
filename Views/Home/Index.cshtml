@@ -1,0 +1,34 @@
+﻿@using Web_Hoa.Models
+@using Web_Hoa.Controllers
+@model IEnumerable<Hoa>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/Slide.css" />
+<link rel="stylesheet" href="~/Content/sanpham.css" />
+
+<div class="slider"></div>
+<div class="main-body">
+    <h1>Sản phẩm nổi bật</h1>
+    <div class="section group">
+        @foreach (Hoa it in Model)
+        {
+            <div class="grid_1_of_4 images_1_of_4">
+                <a href="#"><img src="~/images/@it.AnhDaiDien" alt="" /></a>
+                <h2>@it.TenHoa</h2>
+                <div class="price-details">
+                    <div class="price-number">
+                        <p><span>@it.GiaTien VNĐ</span></p>
+                    </div>
+                    <div class="add-cart">
+                        <h4><a href="@Url.Action("OrderNow","ShoppingCart", new { id = it.IDHoa})">Thêm vào giỏ hàng</a></h4>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

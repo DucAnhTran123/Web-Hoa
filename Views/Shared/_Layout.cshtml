@@ -1,0 +1,49 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+
+    <meta charset="utf-8">
+    <title>Hoa Tươi no 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/Layout.css" />
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/release/v5.4.1/css/all.css" />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <label class="logo">HoaTuoi@STORE</label>
+        <ul>
+            <li><a class="active" href="/Home/Index">Home</a></li>
+            @Html.Action("DanhMuc_Drop")
+            <li><a href="/Home/About">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li>
+                <a href="#">Giỏ Hàng<span class="glyphicon glyphicon-shopping-cart" style="color:azure" ;></span></a>
+            </li>
+            @Html.Partial("Login-partial")
+        </ul>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+    <hr />
+    <footer>
+        <div class="copy">
+            <p>&copy; 2020 Hoa Tuoi. all rights Reseverd | Design by David Nguyen HVKTQS</p>
+        </div>
+    </footer>
+    <a class="gotop" href="#"><i class="fas fa-arrow-up"></i></a>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/datatables")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

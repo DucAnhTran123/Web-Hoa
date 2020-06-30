@@ -1,0 +1,47 @@
+﻿@using Web_Hoa.Models
+@model List<Item>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>TênSP</th>
+            <th>Đơn Giá</th>
+            <th>Số Lượng</th>
+            <th>Tổng tiền</th>
+            <th>Xóa</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr id="row_@item.Hoa.IDHoa">
+                <td>@item.Hoa.IDHoa</td>
+                <td>@item.Hoa.TenHoa</td>
+                <td>@item.Hoa.GiaTien.ToString("N0") VNĐ</td>
+                <td><input type="text" class="quantity" value="@item.SoLuongHoa" /></td>
+                <td>@item.ThanhTien VNĐ</td>
+                <td style="color:red"><a href="/ShoppingCart/Remove/@item.Hoa.IDHoa">X</a></td>
+            </tr>
+        }
+        <tr>
+            <td style="color:red">
+                @{
+                    List<Item> i = (List<Item>)Session["GioHang"];
+                    var total = i.Sum(item => item.Hoa.GiaTien * item.SoLuongHoa);
+                }
+                @total VNĐ
+            </td>
+        </tr>
+        <tr>
+            <td id="td_thanhtoan" style="color:red">
+                <a href="/ShoppingCart/Payment">Thanh toán</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,23 @@
+﻿<link rel="stylesheet" href="~/Content/Layout.css" />
+<style>
+
+</style>
+@if (Session["IDNguoiDung"] != null)
+{
+    <ul class="dropdown">
+        <li>
+            <b>Xin chào:@Session["TenDangNhap"].ToString()</b>
+            <li class="dropdown-child">
+                <a href="@Url.Action("Logout", "Home")" class="btn btn-warning">Logout</a>
+            </li> 
+        </li>
+    </ul>
+}
+else
+{
+    <ul>
+        <li>
+            @Html.ActionLink("Login", "Login", "Home")
+        </li>
+    </ul>
+}

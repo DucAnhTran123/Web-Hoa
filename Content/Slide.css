@@ -1,0 +1,28 @@
+﻿
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.slider {
+    width: 800px;
+    height: 400px;
+    background: url(../../images/Slider1.jpg);
+    margin: 30px auto;
+    animation: slide 18s infinite;
+    box-shadow: 1px 2px 10px 5px #0094ff;
+}
+
+@keyframes slide {
+    25% {
+        background: url(../../images/Slider2.jpg)
+    }
+
+    50% {
+        background: url(../../images/Slider3.jpg)
+    }
+
+    75% {
+        background: url(../../images/Slider1.jpg)
+    }
+}

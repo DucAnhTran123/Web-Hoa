@@ -1,0 +1,49 @@
+﻿@model Web_Hoa.Models.ThanhToanNguoiDung
+@{
+    ViewBag.Title = "Payment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="main-body">
+    <div class="section group">
+        <div class="contact-form">
+            <h2>CHECKOUT INFORMATION</h2>
+            <div id="login-div">
+                <table>
+                    <tr>
+                        <td></td>
+                        <td style="text-decoration:underline;text-align:center">HoaTuoi@Store</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.LabelFor(x => x.Email)</td>
+                        <td>@Model.Email</td>
+                    </tr>
+
+                    <tr>
+                        <td>@Html.LabelFor(m => m.DiaChi)</td>
+                        <td>@Model.DiaChi</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.LabelFor(m => m.DienThoai)</td>
+                        <td>@Model.DienThoai</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.LabelFor(m => m.TenNguoiDung)</td>
+                        <td> @Model.TenNguoiDung</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.LabelFor(m => m.SoLuongHoa)</td>
+                        <td>@Model.SoLuongHoa</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.LabelFor(m => m.SoTien)</td>
+                        <td>@Model.SoTien</td>
+                    </tr>
+                </table>
+                <div id="td_thanhtoan" style="color:red">
+                    @{Html.RenderAction("PVComplete");}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
